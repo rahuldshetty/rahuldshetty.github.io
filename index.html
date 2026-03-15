@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="0; url=/blogs/">
+    <title>Redirecting...</title>
+    <style>
+        :root { color-scheme: light dark; }
+        body {
+            background-color: light-dark(#ffffff, #0f172a);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+        .message {
+            color: light-dark(#0f172a, #f8fafc);
+            opacity: 0;
+            animation: fadeIn 0.5s ease-in forwards;
+            animation-delay: 0.5s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+    <script>
+        window.location.replace("/blogs/");
+    </script>
+</head>
+<body>
+    <div class="message">Redirecting you...</div>
+</body>
+</html>

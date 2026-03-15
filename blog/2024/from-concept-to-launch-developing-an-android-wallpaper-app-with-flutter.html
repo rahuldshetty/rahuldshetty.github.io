@@ -1,0 +1,296 @@
+<!doctype html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>rds-blog | From Concept to Launch: Developing an Android Wallpaper App with Flutter</title><link rel="icon" type="image/x-icon" href="/static/favicon.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Press+Start+2P&display=swap" rel="stylesheet"><style>:root{color-scheme:light dark;--color-bg:light-dark(#eceff4, #2e3440);--color-bg-nav:light-dark(rgba(236, 239, 244, 0.90), rgba(46, 52, 64, 0.90));--color-text:light-dark(#2e3440, #d8dee9);--color-muted:light-dark(#4c566a, #4c566a);--color-border:light-dark(#d8dee9, #3b4252);--color-accent:light-dark(#5e81ac, #81a1c1);--color-tag-bg:light-dark(#e5e9f0, #434c5e);--color-tag-text:light-dark(#3b4252, #eceff4);--color-code-bg:light-dark(#e5e9f0, #3b4252);--color-pre-bg:light-dark(#2e3440, #242933);--color-pre-text:light-dark(#eceff4, #d8dee9);--font-sans:'Montserrat',-apple-system,BlinkMacSystemFont,sans-serif;--font-serif:'Montserrat',serif}[data-theme=light]{color-scheme:light}[data-theme=dark]{color-scheme:dark}</style><script src="https://cdn.tailwindcss.com?plugins=typography"></script><script>tailwind.config={theme:{extend:{fontFamily:{sans:["Montserrat","Inter","sans-serif"],serif:["Merriweather","Georgia","serif"]},typography:()=>({DEFAULT:{css:{"--tw-prose-body":"var(--color-text)","--tw-prose-headings":"var(--color-text)","--tw-prose-lead":"var(--color-muted)","--tw-prose-links":"var(--color-accent)","--tw-prose-bold":"var(--color-text)","--tw-prose-counters":"var(--color-muted)","--tw-prose-bullets":"var(--color-border)","--tw-prose-hr":"var(--color-border)","--tw-prose-quotes":"var(--color-muted)","--tw-prose-quote-borders":"var(--color-border)","--tw-prose-captions":"var(--color-muted)","--tw-prose-code":"var(--color-text)","--tw-prose-pre-code":"var(--color-pre-text)","--tw-prose-pre-bg":"var(--color-pre-bg)","--tw-prose-th-borders":"var(--color-border)","--tw-prose-td-borders":"var(--color-border)",fontFamily:"var(--font-serif)",fontSize:"1.125rem",lineHeight:"1.85",maxWidth:"none",a:{textDecoration:"underline",textDecorationColor:"var(--color-border)",fontWeight:"500","&:hover":{color:"var(--color-accent)",textDecorationColor:"var(--color-accent)"}},h1:{fontFamily:"var(--font-sans)",fontWeight:"700",letterSpacing:"-0.02em"},h2:{fontFamily:"var(--font-sans)",fontWeight:"700",letterSpacing:"-0.01em"},h3:{fontFamily:"var(--font-sans)",fontWeight:"600"},blockquote:{fontStyle:"italic"},"code::before":{content:'""'},"code::after":{content:'""'},code:{backgroundColor:"var(--color-code-bg)",padding:"0.15rem 0.4rem",borderRadius:"0.25rem",fontWeight:"400",fontSize:"0.875em"},img:{borderRadius:"0.5rem",margin:"2rem auto"}}}})}}}</script></head><body class="bg-[var(--color-bg)] text-[var(--color-text)] font-sans antialiased"><nav class="sticky top-0 z-50 border-b border-[var(--color-border)] backdrop-blur-sm" style="background-color:var(--color-bg-nav)"><div class="max-w-4xl mx-auto px-6 h-14 flex items-center justify-between"><a href="/" class="text-lg font-bold text-[var(--color-text)] flex items-center gap-2 hover:opacity-80 transition-opacity"><img class="w-6 h-6" src="/static/favicon.png" alt=""> rds-blog</a><div class="flex gap-6 items-center"><a href="/blogs/" class="text-sm font-medium text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-colors">Blogs</a> <a href="/static/resume.pdf" target="_blank" class="text-sm font-medium text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-colors flex items-center gap-1">Resume <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3.5 h-3.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg></a></div></div></nav><div class="min-h-screen"><main class="max-w-2xl mx-auto px-6 py-12"><header class="mb-10"><h1 class="font-sans text-4xl sm:text-5xl font-extrabold leading-tight tracking-tight text-[var(--color-text)] mb-4">From Concept to Launch: Developing an Android Wallpaper App with Flutter</h1><p class="text-xl text-[var(--color-muted)] leading-relaxed mb-6 font-medium">This blog post gives a complete walkthrough on how to build an Android Wallpaper App with Flutter and publish it in Play Store.</p><div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-6 text-sm"><div class="flex items-center gap-2 text-[var(--color-muted)]"><time datetime="2024-06-10T00:00:00+05:30">June 10, 2024</time></div><span class="text-[var(--color-border)] hidden sm:inline">|</span><div class="flex items-center gap-2 text-[var(--color-muted)] font-medium italic">10 min read</div></div><div class="flex flex-wrap gap-2 mt-5"><span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-[var(--color-tag-bg)] text-[var(--color-tag-text)] hover:opacity-80 transition-opacity cursor-default">Tutorial </span><span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-[var(--color-tag-bg)] text-[var(--color-tag-text)] hover:opacity-80 transition-opacity cursor-default">Android </span><span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-[var(--color-tag-bg)] text-[var(--color-tag-text)] hover:opacity-80 transition-opacity cursor-default">Flutter</span></div></header><figure class="mb-10 -mx-6 sm:-mx-12"><img src="https://i.postimg.cc/Bb1N9bB7/feature.jpg" alt="Try it now at &lt;a class=&quot;underline underline-offset-4&quot; href=&quot;https://play.google.com/store/apps/details?id=com.rds.ai.my_wallpaper&quot;&gt;Play Store&lt;/a&gt;" class="w-full object-cover rounded-none sm:rounded-xl max-h-[480px]"><figcaption class="text-center text-sm text-[var(--color-muted)] mt-3 italic px-6">Try it now at &lt;a class=&quot;underline underline-offset-4&quot; href=&quot;https://play.google.com/store/apps/details?id=com.rds.ai.my_wallpaper&quot;&gt;Play Store&lt;/a&gt;</figcaption></figure><article class="prose prose-lg max-w-none prose-headings:font-sans prose-headings:font-bold prose-headings:tracking-tight prose-img:rounded-xl prose-img:shadow-sm prose-img:mx-auto"><p>Back in college, I had opened a Google Play Developer&#39;s account. I was motivated to release many Android apps and get few of them to success (more downloads/publicity/etc) but to my surprise, developing Android app is just the first part of the process.The later part of the process involves marketing the app to your social circle/friends/media/news etc to be able to really make it a success. Luckily, one of the apps that I developed with my friends in college did see that success - Naman (but unfortunately Google seemed to have removed it now due to no maintenance).</p><p>Anyway 4 years later, going back to my Google Play Console I got a message in my email that they are going to shutdown my developer account due to inactivity.</p><p><img src="https://storage.googleapis.com/support-forums-api/attachment/thread-264043037-10088205505755485415.png" alt="Google Play Account Suspension Warning"></p><p>I did not want to lose the account nor the apps that I already published, so I went ahead to develop and publish a new app to meet with their criteria.</p><h1>The Idea</h1><p>I know I wanted to make something small but that can easily be extended by more features. I didn&#39;t want to have frequent releases but there should be a factor that will let users to come to the app. Thinking of different ideas from building an image-gen app, voice-assistant app, news app etc.. I ended up with a wallpaper gallery app.</p><h2>Wallpaper Gallery App</h2><p>I wanted the app to be bit engaging and have a way of expanding the given library. So I went ahead with this approach:</p><ol><li>Upload images into hosting service (like <a href="https://postimages.org/">postimages</a>, <a href="https://imgbb.com/upload">imgbb</a>)</li><li>Create and upload a JSON data file into a remote location that contains links to the thumbnails and original image itself (I created a simple JSON file in the project&#39;s Github repository to store this <a href="https://github.com/rahuldshetty/flutter-wallpaper-app/blob/master/wallpaper_collection/wallpaper_data_v1.json">information</a>. This lets me to quickly update my gallery of images in the app without re-deploying or re-publishing).</li><li>App initializes and loads the gallery image data from the remote JSON link.</li><li>Users can set the selected image as their wallpaper.</li></ol><h1>Setup</h1><p>I won&#39;t go in details about the dev environment setup, but make sure to have the following things installed:</p><ul><li><a href="https://developer.android.com/studio">Android Studio with SDK + VM</a> [As of this writing this blog, I&#39;m using Android Studio version JellyFish (2023.3.1 Patch 1)]</li><li><a href="https://docs.flutter.dev/get-started/install">Flutter</a> [Flutter version used in this tutorial: Flutter 3.22.2]</li><li><a href="https://www.java.com/download/manual.jsp">Java</a> [This is helpful when building the app bundles in order to publish in Play Store]</li></ul><h1>Develop Flutter App</h1><h2>Project Setup</h2><p>Run the following commands to set up a new flutter project.</p><pre><code class="language-bash"># Make sure flutter has everything setup
+flutter doctor
+
+# Create flutter project
+flutter create &lt;project-name&gt;
+
+# Open the project in VSCode (or other favorite editor)
+cd &lt;project-name&gt;
+code .
+</code></pre><p>You should have some boilerplate code configured. If you are using VS Code, then you can use it&#39;s great flutter extension to start the app directly on n Android VM. Even though, we don&#39;t really have our Wallpaper app ready we can still go ahead and run the boilerplate code to see if the code is compiling successfully. Once the app launches successfully, you should be able to see a counter app.</p><h2>Writing your Wallpaper Service</h2><h3>Adding dependencies</h3><p>Update <em>pubspec.yaml</em> with the following dependencies.</p><pre><code class="language-yaml"># ...
+
+dependencies:
+  # ...
+  http: ^1.2.1
+  cached_network_image: ^3.0.0
+
+# ...
+</code></pre><p>Run <code>flutter pub get</code> to download these dependencies in the project.</p><h3>Rewriting main.dart</h3><p>We will remove the default Counter app in <em>main.dart</em> and create something shown below.</p><pre><code class="language-dart">import &#39;package:flutter/material.dart&#39;;
+import &#39;package:my_wallpaper/ui/home.dart&#39;;
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: &#39;AI Wallpaper Gallery&#39;,
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.tealAccent),
+        useMaterial3: true,
+      ),
+      home: const HomePage(),
+    );
+  }
+}
+</code></pre><h3>Creating Wallpaper Object and Loader</h3><p>Now create a folder under your app directory <em>lib/services</em> and create a new dart class-file called <strong>lib/services/wallpaper.dart</strong> for holding your Wallpaper object.</p><pre><code class="language-dart">import &#39;dart:convert&#39;;
+import &#39;package:flutter/material.dart&#39;;
+import &#39;package:http/http.dart&#39; as http;
+import &#39;package:cached_network_image/cached_network_image.dart&#39;;
+
+// TODO: Update Remote URL for Wallpaper Data with your Link
+const String imageWallpeperUrl = &quot;https://raw.githubusercontent.com/rahuldshetty/flutter-wallpaper-app/master/wallpaper_collection/wallpaper_data_v1.json&quot;;
+
+class Wallpaper{
+  final String category;
+  final String namge;
+  final String thumbnailUrl;
+  final String imageUrl;
+
+  Wallpaper({required this.category, required this.namge, required this.thumbnailUrl, required this.imageUrl});
+
+  factory Wallpaper.fromJson(Map&lt;String, dynamic&gt; json){
+    return Wallpaper(
+      category: json[&#39;category&#39;], 
+      namge: json[&#39;namge&#39;], 
+      thumbnailUrl: json[&#39;thumbnailUrl&#39;], 
+      imageUrl: json[&#39;imageUrl&#39;]);
+  }
+}
+
+class WallpaperService{
+  static Future&lt;List&lt;Wallpaper&gt;&gt; fetchWallpapers() async {
+    // Read JSON data from remote location
+    final response = await http.get(Uri.parse(imageWallpeperUrl));
+
+    if (response.statusCode == 200) {
+        // Load wallpaper data into Object structure
+        List&lt;dynamic&gt; data = json.decode(response.body);
+        return data.map((json) =&gt; Wallpaper.fromJson(json)).toList();
+    } else {
+        throw Exception(&#39;Failed to load wallpapers&#39;);
+    }
+  }
+}
+</code></pre><h3>Implementing Wallpaper Gallery UI</h3><p>This will be the home page for our flutter application. We will use a GridView to display the contents of <em>Wallpaper</em> object as they are loaded dynamically during startup.</p><p>To do this, let us create a dart component for the UI under the following location <strong>lib/ui/home.dart</strong>.</p><pre><code class="language-dart">import &#39;package:cached_network_image/cached_network_image.dart&#39;;
+import &#39;package:flutter/material.dart&#39;;
+import &#39;package:my_wallpaper/services/wallpaper.dart&#39;;
+import &#39;package:my_wallpaper/ui/wallpaper_detail.dart&#39;;
+
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+  @override
+  State&lt;HomePage&gt; createState() =&gt; _HomePageState();
+}
+
+class _HomePageState extends State&lt;HomePage&gt;{
+  late Future&lt;List&lt;Wallpaper&gt;&gt; futureWallpaper;
+
+  @override
+  void initState() {
+    futureWallpaper = WallpaperService.fetchWallpapers();
+    super.initState();
+  }
+  
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text(&#39;AI Wallpaper Gallery&#39;)),
+      body: FutureBuilder&lt;List&lt;Wallpaper&gt;&gt;(
+        future: futureWallpaper,
+        builder: (context, snapshot){
+          if(snapshot.connectionState == ConnectionState.waiting){
+            return const Center(child: CircularProgressIndicator());
+          } else if (snapshot.hasError){
+            return const Center(child: Text(&quot;Failed to load Wallpaper data&quot;));
+          } else {
+            List&lt;Wallpaper&gt;? wallpapers = snapshot.data;
+            return GridView.builder(
+              itemCount: wallpapers?.length,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                childAspectRatio: (1 / .4),
+              ),
+              itemBuilder: (context, index){
+                return GestureDetector(
+                  onTap: (){
+                    Navigator.push(
+                      context, 
+                      MaterialPageRoute(builder: (context) =&gt; WallpaperDetail(wallpapers[index]))
+                    );
+                  },
+                  child: CachedNetworkImage(
+                    imageUrl: wallpapers![index].thumbnailUrl,
+                    placeholder: (context, url) =&gt; const Center(child:
+                      SizedBox(
+                      width: 80.0,
+                      height: 80.0,
+                      child: CircularProgressIndicator(),
+                    )
+                    ),
+                    errorWidget: (context, url, error) =&gt; const Icon(Icons.error),
+                    fit: BoxFit.cover
+                  ),
+                );
+              }
+            );
+          }
+        },
+      ),
+    );
+  }
+}
+</code></pre><h3>Opening up Wallpaper in Details Screen</h3><p>Now when the user selects any of the image, we want to redirect them to a details screen from where they can set the image as wallpaper.</p><p>Let us create another dart file under the ui component <strong>lib/ui/wallpaper_detail.dart</strong>.</p><pre><code class="language-dart">import &#39;package:cached_network_image/cached_network_image.dart&#39;;
+import &#39;package:flutter/material.dart&#39;;
+import &#39;package:flutter/services.dart&#39;;
+import &#39;package:my_wallpaper/services/wallpaper.dart&#39;;
+
+class WallpaperDetail extends StatelessWidget {
+  final Wallpaper wallpaper;
+
+  const WallpaperDetail(this.wallpaper, {super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        resizeToAvoidBottomInset: true,
+        appBar:
+            AppBar(title: Text(&quot;${wallpaper.namge} (${wallpaper.category})&quot;)),
+        body: SingleChildScrollView (child:Center(
+            child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Center(
+                child: CachedNetworkImage(
+                  imageUrl: wallpaper.imageUrl,
+                  placeholder: (context, url) =&gt;
+                      const CircularProgressIndicator(),
+                  errorWidget: (context, url, error) =&gt; const Icon(Icons.error),
+                  fit: BoxFit.cover,
+                ),
+              ),
+              TextButton(
+                  onPressed: () =&gt; {
+                    // TODO: Set Wallpaper functionality
+                   }, child: const Text(&quot;Set As Wallpaper&quot;))
+            ],
+        ))));
+  }
+</code></pre><h3>Calling native Kotlin to set device wallpaper</h3><p>This part was one of the trickest (at least for me as I was out of touch with Mobile App Dev for more than 5 years). I have built the basics, but now its just left is to take the remote image data and set it as wallpaper on the Android device.</p><p>My first thought was to see if there are any pre-existing packages/library that does it out-of-the-box in flutter. I hoped onto flutter&#39;s <a href="https://pub.dev/">pub.dev</a> and looked for <a href="https://pub.dev/packages?q=wallpaper">wallpaper</a> related package. Most of the libraries that I tried were either outdated or not maintained. I had no choice but to take the difficult route which involved going through the sacred texts (<a href="https://developer.android.com/guide">Android Documentation</a>).</p><p>I had a breakthrough after a little bit of Googling and OpenAIing/GPTing. The solution involved building the <em>setWallpaper</em> service in native android code (Kotlin/Java) and then have the method called through channels.</p><p><img src="https://i.redd.it/ffavl8dphwt41.jpg" alt="Welp"></p><p>In the <strong>wallpaper_detail.dart</strong> component, add the following changes to call Koltin native code.</p><pre><code class="language-dart">// ....
+const platform = MethodChannel(&#39;com.example.my_wallpaper/setWallpaper&#39;);
+
+// Inside &quot;class WallpaperDetail...&quot; 
+// ...
+
+  Future&lt;void&gt; setAsWallpaper(String imageUrl) async {
+    try {
+      // download image
+      final response = await http.get(Uri.parse(imageUrl));
+      if(response.statusCode == 200){
+         // Convert response body to Uint8List
+        Uint8List bytes = response.bodyBytes;
+
+        await platform.invokeMethod(&#39;setWallpaper&#39;, bytes);
+      } else {
+        throw Exception(&#39;Downloading image failed!&#39;);
+      }
+    } on PlatformException catch (e) {
+      print(&quot;Failed to set wallpaper: &#39;${e.message}&#39;&quot;);
+    }
+  }
+</code></pre><p>I won&#39;t call myself a Kotlin developer as I have 0 experience before writing this blog post (however I do have some decent idea working with Java for app development), so the code down below may not be the best way to do it. If there are better way to do it, feel free to hit me up in my inbox.</p><p>So open the <strong>MainActivity.kt</strong>* file inside your <em>android/app/main/kotlin/com/example/<project-name></project-name></em>directory. Update the following code:</p><pre><code class="language-kotlin">package com.example.my_wallpaper
+import io.flutter.embedding.android.FlutterActivity
+import io.flutter.embedding.engine.FlutterEngine
+import io.flutter.plugins.GeneratedPluginRegistrant
+import io.flutter.plugin.common.MethodChannel
+
+import android.app.WallpaperManager
+import android.graphics.BitmapFactory
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
+import android.graphics.Bitmap
+import java.io.ByteArrayInputStream
+import java.io.ByteArrayOutputStream
+import android.provider.MediaStore
+
+class MainActivity : FlutterActivity() {
+    private val CHANNEL = &quot;com.example.my_wallpaper/setWallpaper&quot;
+
+    override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
+        GeneratedPluginRegistrant.registerWith(flutterEngine)
+        MethodChannel(flutterEngine.dartExecutor.binaryMessenger, CHANNEL).setMethodCallHandler { call, result -&gt;
+            if (call.method == &quot;setWallpaper&quot;) {
+                val bytes = call.arguments as ByteArray
+                setWallpaper(bytes)
+                result.success(null)
+            } else {
+                result.notImplemented()
+            }
+        }
+    }
+
+    private fun setWallpaper(bytes: ByteArray) {
+        val wallpaperManager = WallpaperManager.getInstance(context)
+        val bitmap = BitmapFactory.decodeStream(ByteArrayInputStream(bytes))
+        val intent = Intent(wallpaperManager.getCropAndSetWallpaperIntent(getImageUri(context, bitmap)))
+        startActivity(intent)
+        finish()
+    }
+
+    private fun getImageUri(context: Context, bitmap: Bitmap): Uri{
+        val bytes = ByteArrayOutputStream()
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bytes)
+        val path = MediaStore.Images.Media.insertImage(context.contentResolver, bitmap, &quot;Title&quot;, null)
+        return Uri.parse(path.toString())
+    }
+}
+</code></pre><p>We use Intent to navigate to the device&#39;s wallpaper manager service with <strong>getCropAndSetWallpaperIntent</strong>. This lets us to crop and set the image as wallpaper. You can improve the logic here to handle error scenarios or other conditions depending on your requirement. I&#39;ll leave it up to you to figure that out.</p><h3>The final hurdle: Setting Android Permissions</h3><p>If you tried to run the app before this, then you might be able to get the gallery, go to the details screen but might have trouble setting the image as wallpaper. This is because we are missing the final step of our tutorial i.e, to set the Android permissions.</p><p>Find the <strong>AndroidManifest.xml</strong> and add the following permissions inside the <code>&lt;manifest&gt;...&lt;/manifest&gt;</code>.</p><pre><code>&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt; 
+&lt;uses-permission android:name=&quot;android.permission.SET_WALLPAPER&quot;/&gt;
+</code></pre><p>Now you should be able to compile, build and test the app on the Android VM or a phone device.</p><p><img src="https://raw.githubusercontent.com/rahuldshetty/flutter-wallpaper-app/master/market/RAW/New%20folder/Screenshot_1717845068-portrait.png" alt=""><img src="https://raw.githubusercontent.com/rahuldshetty/flutter-wallpaper-app/master/market/RAW/New%20folder/Screenshot_1717845076-portrait.png" alt=""><img src="https://raw.githubusercontent.com/rahuldshetty/flutter-wallpaper-app/master/market/RAW/New%20folder/Screenshot_1717845081-portrait.png" alt=""></p><h2>Publishing App to Play Store</h2><p>I personally followed these two medium articles - <a href="https://medium.com/@bernes.dev/deploying-flutter-apps-to-the-playstore-1bd0cce0d15c">link 1</a> and <a href="https://medium.com/blocship/publish-flutter-app-to-play-store-69cb0cd5a30b">link 2</a> that had a good walkthrough on how to update contents and publish your android app into Play Store.</p><h3>Update App Name</h3><p>If you want to change the app name then you can update it in <strong>AndroidManifest.xml</strong>.</p><pre><code>    &lt;application
+        android:label=&quot;My App Name&quot;
+        android:name=&quot;${applicationName}&quot;
+        android:icon=&quot;@mipmap/ic_launcher&quot;
+        android:enableOnBackInvokedCallback=&quot;true&quot;
+</code></pre><h3>Generating Key Store</h3><p>Create <strong>android/key.properties</strong> with the following properties and your secret values.</p><pre><code>storePassword=&lt;Something Secret&gt;
+keyPassword=&lt;Something Secret&gt;
+keyAlias=my-key-alias
+storeFile=my-key.jks
+</code></pre><p>Now create a keystore with your secrets.</p><p><code>keytool -genkey -v -keystore C:\Users\USER_NAME\my-key.jks -storetype JKS -keyalg RSA -keysize 2048 -validity 10000 -alias my-key-alias</code></p><p>This will create a file called <strong>my-key.jks</strong> in user directory. Now copy this file inside your app directory under the location <strong>android/app/my-key-jks</strong>.</p><p>Now update <strong>andorid/app/build.gradle</strong> with the following configuration for the signing keys:</p><pre><code>// ...
+def keystoreProperties = new Properties()
+def keystorePropertiesFile = rootProject.file(&#39;key.properties&#39;)
+if (keystorePropertiesFile.exists()) {
+       keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
+
+// Inside andorid namespace
+android {
+  // ...
+
+  signingConfigs {
+    release {
+          keyAlias keystoreProperties[&#39;keyAlias&#39;]
+          keyPassword keystoreProperties[&#39;keyPassword&#39;]
+          storeFile keystoreProperties[&#39;storeFile&#39;] ? file(keystoreProperties[&#39;storeFile&#39;]) : null
+          storePassword keystoreProperties[&#39;storePassword&#39;]
+      }
+    }
+
+  buildTypes {
+      release {
+          // TODO: Add your own signing config for the release build.
+          // Signing with the debug keys for now, so `flutter run --release` works.
+          signingConfig = signingConfigs.release
+      }
+  }
+
+  // ...
+</code></pre><h3>Play Store Release</h3><p>You can follow the steps mentioned in the above guides on releasing app t0 Play Stores.</p><p>But here are couple of things that you can make use of to make your app more appealing to audience.</p><h4>Custom App Icon</h4><p><a href="https://icon.kitchen">icon.kitchen</a> is a great place to get your custom icon for android app. It lets you generate manifests of resources for different screen resolution that you can directly import into your project.</p><h4>Phone Mockups</h4><p><a href="https://mockuphone.com/">MockUp Phone</a> is another free tool that lets you generate pictures of your android app on a phone mockups.</p><h4>Build the Bundle</h4><p>Now we can build the app as a bundle, so it can be deployed to the store.</p><pre><code>flutter build appbundle
+</code></pre><h2>Conclusion</h2><p>You can directly install the android app on your phone through: <a href="https://play.google.com/store/apps/details?id=com.rds.ai.my_wallpaper">Play Store</a></p><p>You can find the complete code for this tutorial at <a href="https://github.com/rahuldshetty/flutter-wallpaper-app/tree/master">Github</a></p><p>Feel free to clone the repo and build upon this app.</p></article><hr class="my-12 border-[var(--color-border)]"><footer class="flex items-center justify-between text-sm text-[var(--color-muted)]"><a href="/blogs/" class="hover:text-[var(--color-text)] transition-colors flex items-center gap-1.5 font-medium"><svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg> All posts </a><span>rds-blog</span></footer></main></div><footer class="mt-auto py-6 border-t border-[var(--color-border)]"><div class="max-w-3xl mx-auto px-6 text-center"><p class="text-sm text-[var(--color-muted)]">Made with <a href="https://github.com/rahuldshetty/inscribe" class="text-[var(--color-muted)] hover:text-[var(--color-text)] underline underline-offset-2 transition-colors" target="_blank" rel="noopener">Inscribe</a></p></div></footer></body></html>
