@@ -8,7 +8,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "cd ../inscribe/ && bun inscribe dev ../rds-blog/",
-    "build": "cd ../inscribe/ && bun inscribe build ../rds-blog/ -o ../rds-blog/dist",
+    "build": "cd ../inscribe/ && bun inscribe build ../rds-blog/ --output ../rds-blog/dist",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
