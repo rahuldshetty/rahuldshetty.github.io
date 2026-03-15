@@ -1,19 +1,30 @@
 This project uses [Inscribe](https://rahuldshetty.github.io/inscribe/) to generate static HTML files from markdown files.
 
-To live debug and watch for changes, run the following command:
+## Setup Inscribe (MUST REQUIRED)
 
 ```bash
-# Clone and switch to inscribe tool folder
+# Clone repository to the parent of this directory
 git clone https://github.com/rahuldshetty/inscribe.git
 cd inscribe
-
-# Run inscribe in dev mode
-bun inscribe dev ../rds-blog/
+bun install -g .
 ```
 
-To generate HTML files, run the following command:
+## Running Inscribe with RDS-BLOG
 
 ```bash
-# Generate deployable HTML files
-bun inscribe build ../rds-blog/ --output ../rds-blog/dist
+# Clone this repository locally
+git clone https://github.com/rahuldshetty/rahuldshetty.github.io rds-blog
+cd rds-blog
+
+# Note:
+# If you've cloned the repo with different name, make sure to update the folder name in package.json
+
+# Start live server for development
+bun run dev
+
+# Build static HTML files
+bun run build
+
+# Deploy to GitHub Pages
+bun run deploy
 ```
