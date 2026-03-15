@@ -1,0 +1,6 @@
+title: rds-blog
+theme: nord_custom
+show_home: false
+blog_path: "blogs"
+doc_path: ""
+show_doc_nav: false

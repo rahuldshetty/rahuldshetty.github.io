@@ -1,0 +1,15 @@
+{
+  "name": "rds-blog",
+  "version": "1.0.0",
+  "description": "This project uses [Inscribe](https://rahuldshetty.github.io/inscribe/) to generate static HTML files from markdown files.",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "gh-pages": "^6.3.0"
+  }
+}

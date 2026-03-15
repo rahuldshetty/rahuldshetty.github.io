@@ -1,0 +1,28 @@
+{% extends "base.njk" %}
+
+{% block title %}{{ config.title }}{% endblock %}
+
+{% block content %}
+<div class="min-h-[85vh] flex flex-col items-center justify-center text-center px-6">
+    <div class="max-w-3xl">
+        <h1 class="text-5xl sm:text-7xl font-extrabold tracking-tight text-[var(--color-text)] mb-8">
+            {{ config.title }}
+        </h1>
+        <p class="text-xl sm:text-2xl text-[var(--color-muted)] mb-12 leading-relaxed">
+            {{ config.tagline }}
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 items-center justify-center">
+            {% if navState.hasBlog %}
+            <a href="{{ '/blogs/' | url }}" class="px-8 py-3 w-full sm:w-auto text-lg font-medium text-[var(--color-bg)] bg-[var(--color-text)] rounded-full hover:opacity-90 transition-opacity">
+                Read the Blog
+            </a>
+            {% endif %}
+            {% if navState.hasDocs %}
+            <a href="{{ '/docs/' | url }}" class="px-8 py-3 w-full sm:w-auto text-lg font-medium text-[var(--color-text)] bg-[var(--color-border)] rounded-full hover:bg-[var(--color-muted)] hover:text-white transition-colors">
+                Documentation
+            </a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

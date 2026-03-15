@@ -1,0 +1,106 @@
+{% extends "base.njk" %}
+
+{% block title %}{{ config.title }} | {{ blog.metadata.title }}{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-[var(--color-bg)] w-full max-w-[1400px] mx-auto flex flex-col md:flex-row md:px-8">
+
+    {% if config.show_doc_nav !== false %}
+    {# Left Navigation Sidebar #}
+    <aside class="w-full md:w-64 flex-shrink-0 md:border-r border-[var(--color-border)] py-8 md:pr-8 px-6 md:px-0">
+        <nav class="sticky top-8 overflow-y-auto overflow-x-hidden max-h-[calc(100vh-4rem)]">
+            {% macro renderNode(node, depth, currentDirPath) %}
+                {% if node.title %}
+                    <details class="group" {% if currentDirPath == node.path or currentDirPath.startsWith(node.path + '/') %}open{% endif %}>
+                        <summary class="flex items-center justify-between cursor-pointer list-none py-1.5 px-2 hover:bg-[var(--color-tag-bg)] rounded-md transition-all"
+                                 style="padding-left: {{ depth * 16 + 8 }}px">
+                            <span class="text-sm font-bold text-[var(--color-text)]">
+                                {{ node.title }}
+                            </span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-[var(--color-muted)] transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </summary>
+                        <div class="mt-0.5">
+                            {% for item in node.items %}
+                                {% if item.type == 'folder' %}
+                                    {{ renderNode(item.node, depth + 1, currentDirPath) }}
+                                {% else %}
+                                    <div class="rounded-md hover:bg-[var(--color-tag-bg)] transition-all">
+                                        <a href="{{ item.post.url | url }}" 
+                                           style="padding-left: {{ (depth + 1) * 16 + 8 }}px"
+                                           class="text-sm py-1.5 block transition-colors {% if item.post.metadata.slug == doc.metadata.slug %}text-[var(--color-text)] font-semibold border-l-2 border-[var(--color-text)] -ml-[2px]!{% else %}text-[var(--color-muted)] hover:text-[var(--color-text)]{% endif %}">
+                                            {{ item.post.metadata.title }}
+                                        </a>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </details>
+                {% else %}
+                    {# Root node - just render items directly #}
+                    {% for item in node.items %}
+                        {% if item.type == 'folder' %}
+                            {{ renderNode(item.node, depth, currentDirPath) }}
+                        {% else %}
+                            <div class="rounded-md hover:bg-[var(--color-tag-bg)] transition-all">
+                                <a href="{{ item.post.url | url }}" 
+                                   style="padding-left: {{ depth * 16 + 8 }}px"
+                                   class="text-sm py-1.5 block transition-colors {% if item.post.metadata.slug == doc.metadata.slug %}text-[var(--color-text)] font-semibold border-l-2 border-[var(--color-text)] -ml-[2px]!{% else %}text-[var(--color-muted)] hover:text-[var(--color-text)]{% endif %}">
+                                    {{ item.post.metadata.title }}
+                                </a>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            {% endmacro %}
+
+            {% for rootNode in sidebarTree %}
+                {{ renderNode(rootNode, 0, currentDirPath) }}
+            {% endfor %}
+        </nav>
+    </aside>
+    {% endif %}
+
+    {# Article Container #}
+    <main class="flex-1 min-w-0 px-6 py-12 lg:px-12 {% if config.show_doc_nav === false %}max-w-2xl mx-auto{% else %}max-w-3xl{% endif %}">
+
+        {# Cover Image #}
+        {% if blog.metadata.cover %}
+        <figure class="mb-10 -mx-6 sm:-mx-12">
+            <img
+                src="{{ blog.metadata.cover | url }}"
+                alt="{{ blog.metadata.cover_alt or blog.metadata.title }}"
+                class="w-full object-cover rounded-none sm:rounded-xl max-h-[480px]"
+            />
+            {% if blog.metadata.cover_alt %}
+            <figcaption class="text-center text-sm text-[var(--color-muted)] mt-3 italic px-6">
+                {{ blog.metadata.cover_alt }}
+            </figcaption>
+            {% endif %}
+        </figure>
+        {% endif %}
+
+        {# Article Body — Typography plugin styles prose content #}
+        <article class="prose prose-lg max-w-none
+                        prose-headings:font-sans prose-headings:font-bold prose-headings:tracking-tight
+                        prose-img:rounded-xl prose-img:shadow-sm prose-img:mx-auto">
+            {{ content | safe }}
+        </article>
+
+        {# Footer divider #}
+        <hr class="my-12 border-[var(--color-border)]" />
+
+        <footer class="flex items-center justify-between text-sm text-[var(--color-muted)]">
+            <a href="{{ '/docs/' | url }}"
+               class="hover:text-[var(--color-text)] transition-colors flex items-center gap-1.5 font-medium">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                All docs
+            </a>
+            <span>{{ config.title }}</span>
+        </footer>
+    </main>
+</div>
+{% endblock %}

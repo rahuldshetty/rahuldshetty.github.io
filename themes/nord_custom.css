@@ -1,0 +1,38 @@
+/* ==========================================================================
+   Inscribe Theme: Nord
+   Inspired by the famous Nord color palette. Frosty blues, muted grays,
+   very pleasant and relaxed for developer blogs.
+   ========================================================================== */
+
+   :root {
+    color-scheme: light dark;
+  
+    /* Backgrounds (Snow Storm light, Nord dark) */
+    --color-bg:       light-dark(#eceff4, #2e3440);
+    --color-bg-nav:   light-dark(rgba(236, 239, 244, 0.90), rgba(46, 52, 64, 0.90));
+  
+    /* Text */
+    --color-text:     light-dark(#2e3440, #d8dee9);
+    --color-muted:    light-dark(#4c566a, #4c566a);
+  
+    /* Borders & dividers */
+    --color-border:   light-dark(#d8dee9, #3b4252);
+  
+    /* Links & accents: Frost blue */
+    --color-accent:   light-dark(#5e81ac, #81a1c1);
+  
+    /* Tag / badge pills */
+    --color-tag-bg:   light-dark(#e5e9f0, #434c5e);
+    --color-tag-text: light-dark(#3b4252, #eceff4);
+  
+    /* Inline code */
+    --color-code-bg:  light-dark(#e5e9f0, #3b4252);
+  
+    /* Code blocks */
+    --color-pre-bg:   light-dark(#2e3440, #242933); /* Slightly darker than bg in dark mode */
+    --color-pre-text: light-dark(#eceff4, #d8dee9);
+  
+    /* Fonts: Mono-ish sans-serif vibe */
+    --font-sans:      'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-serif:     'Montserrat', serif;
+  }
