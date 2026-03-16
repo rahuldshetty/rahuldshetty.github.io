@@ -4,3 +4,4 @@ show_home: false
 blog_path: "blogs"
 doc_path: ""
 show_doc_nav: false
+google_analytics_id: 'G-WVR6SWQH0Z'

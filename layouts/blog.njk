@@ -2,6 +2,40 @@
 
 {% block title %}{{ config.title }} | {{ blog.metadata.title }}{% endblock %}
 
+{% block head %}
+    {% if blog.metadata.description %}
+    <meta name="description" content="{{ blog.metadata.description }}">
+    {% endif %}
+    {% if blog.metadata.author %}
+    <meta name="author" content="{{ blog.metadata.author }}">
+    {% endif %}
+    {% if blog.metadata.tags %}
+    <meta name="keywords" content="{{ blog.metadata.tags | join(', ') }}">
+    {% endif %}
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="{{ blog.url | url }}">
+    <meta property="og:title" content="{{ blog.metadata.title }}">
+    {% if blog.metadata.description %}
+    <meta property="og:description" content="{{ blog.metadata.description }}">
+    {% endif %}
+    {% if blog.metadata.cover %}
+    <meta property="og:image" content="{{ blog.metadata.cover | url }}">
+    {% endif %}
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ blog.url | url }}">
+    <meta property="twitter:title" content="{{ blog.metadata.title }}">
+    {% if blog.metadata.description %}
+    <meta property="twitter:description" content="{{ blog.metadata.description }}">
+    {% endif %}
+    {% if blog.metadata.cover %}
+    <meta property="twitter:image" content="{{ blog.metadata.cover | url }}">
+    {% endif %}
+{% endblock %}
+
 {% block content %}
 <div class="min-h-screen">
 
