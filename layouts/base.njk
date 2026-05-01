@@ -11,18 +11,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Press+Start+2P&display=swap" rel="stylesheet">
 
     {# Inject the resolved theme CSS (light + dark variables) #}
-    <style>{{ themeCSS | safe }}
-    [data-theme="light"] { color-scheme: light; }
-    [data-theme="dark"]  { color-scheme: dark; }
+    <style>
+    {{ themeCSS | safe }}
     </style>
 
+    {% if isDev %}
     <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Montserrat', 'Inter', 'sans-serif'],
+                        sans: ['Inter', 'sans-serif'],
                         serif: ['Merriweather', 'Georgia', 'serif'],
                     },
                     typography: () => ({
@@ -81,6 +81,10 @@
             },
         }
     </script>
+    {% else %}
+    <link rel="stylesheet" href="{{ '/static/tailwind.css' | url }}">
+    {% endif %}
+
     {% if config.google_analytics_id %}
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id={{ config.google_analytics_id }}"></script>
