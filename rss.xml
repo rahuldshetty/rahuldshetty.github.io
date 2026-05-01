@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+<channel>
+    <title><![CDATA[rds-blog]]></title>
+    <link>/</link>
+    <description><![CDATA[Inscribe Blog]]></description>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 01 May 2026 07:52:47 GMT</lastBuildDate>
+    <atom:link href="/rss.xml" rel="self" type="application/rss+xml" />
+    
+        <item>
+            <title><![CDATA[I created a new blog framework from scratch (again)]]></title>
+            <link>/blog/2026/inscribe-new-blog-framework</link>
+            <guid isPermaLink="true">/blog/2026/inscribe-new-blog-framework</guid>
+            <pubDate>Sat, 14 Mar 2026 18:30:00 GMT</pubDate>
+            <description><![CDATA[In this blog post, I talk about my experience building a new static site generator called Inscribe.]]></description>
+            <media:content url="/static/blog/2026-03-16-ssg.jpg" medium="image" />
+            <enclosure url="/static/blog/2026-03-16-ssg.jpg" length="0" type="image/jpeg" />
+        </item>
+        <item>
+            <title><![CDATA[My Personal Experience with Tauri: Building Reader-Project]]></title>
+            <link>/blog/2025/my-personal-experience-with-tauri-building-reader-project</link>
+            <guid isPermaLink="true">/blog/2025/my-personal-experience-with-tauri-building-reader-project</guid>
+            <pubDate>Mon, 10 Feb 2025 18:30:00 GMT</pubDate>
+            <description><![CDATA[In this blog post, I talk about my experience building a desktop app using the Tauri framework.]]></description>
+            <media:content url="https://raw.githubusercontent.com/rahuldshetty/reader-project/refs/tags/v0.1.0/docs/media/demo-beta.jpg" medium="image" />
+            <enclosure url="https://raw.githubusercontent.com/rahuldshetty/reader-project/refs/tags/v0.1.0/docs/media/demo-beta.jpg" length="0" type="image/jpeg" />
+        </item>
+        <item>
+            <title><![CDATA[From Concept to Launch: Developing an Android Wallpaper App with Flutter]]></title>
+            <link>/blog/2024/from-concept-to-launch-developing-an-android-wallpaper-app-with-flutter</link>
+            <guid isPermaLink="true">/blog/2024/from-concept-to-launch-developing-an-android-wallpaper-app-with-flutter</guid>
+            <pubDate>Sun, 09 Jun 2024 18:30:00 GMT</pubDate>
+            <description><![CDATA[This blog post gives a complete walkthrough on how to build an Android Wallpaper App with Flutter and publish it in Play Store.]]></description>
+            <media:content url="https://i.postimg.cc/Bb1N9bB7/feature.jpg" medium="image" />
+            <enclosure url="https://i.postimg.cc/Bb1N9bB7/feature.jpg" length="0" type="image/jpeg" />
+        </item>
+        <item>
+            <title><![CDATA[Bringing Van Gogh's Paintings to Life with AI]]></title>
+            <link>/blog/2024/bringing-van-goghs-paintings-to-life-with-ai</link>
+            <guid isPermaLink="true">/blog/2024/bringing-van-goghs-paintings-to-life-with-ai</guid>
+            <pubDate>Sun, 11 Feb 2024 18:30:00 GMT</pubDate>
+            <description><![CDATA[Explore how I utilized AI Diffusion models to bring Van Gogh's paintings to life in this blogpost.]]></description>
+            <media:content url="https://i.postimg.cc/nhxRV76Z/Vincent-van-Gogh-Wheat-Field-with-Cypresses-Google-Art-Project.jpg" medium="image" />
+            <enclosure url="https://i.postimg.cc/nhxRV76Z/Vincent-van-Gogh-Wheat-Field-with-Cypresses-Google-Art-Project.jpg" length="0" type="image/jpeg" />
+        </item>
+        <item>
+            <title><![CDATA[Small Language Models (SLMs) is all you need]]></title>
+            <link>/blog/2024/small-language-models-slms-is-all-you-need</link>
+            <guid isPermaLink="true">/blog/2024/small-language-models-slms-is-all-you-need</guid>
+            <pubDate>Mon, 08 Jan 2024 18:30:00 GMT</pubDate>
+            <description><![CDATA[Harnessing the full potential of Language Models! Say Hello to Small Language Models!]]></description>
+            <media:content url="https://i.ibb.co/n3hwx4M/smol-llama-banner.png" medium="image" />
+            <enclosure url="https://i.ibb.co/n3hwx4M/smol-llama-banner.png" length="0" type="image/jpeg" />
+        </item>
+        <item>
+            <title><![CDATA[PyTorch Made Easy (Part 1) Tensor Basics]]></title>
+            <link>/blog/2023/pytorch-made-easy-part-1-tensor-basics</link>
+            <guid isPermaLink="true">/blog/2023/pytorch-made-easy-part-1-tensor-basics</guid>
+            <pubDate>Sun, 19 Nov 2023 18:30:03 GMT</pubDate>
+            <description><![CDATA[A Beginner's handbook to PyTorch Core and basic Neural Nets. In this chapter, we will understand the fundaments that power PyTorch - Tensors and what are the different utilities to create them with framework.]]></description>
+            <media:content url="https://blog.paperspace.com/content/images/size/w1050/2019/10/pytorch-logo-1.png" medium="image" />
+            <enclosure url="https://blog.paperspace.com/content/images/size/w1050/2019/10/pytorch-logo-1.png" length="0" type="image/jpeg" />
+        </item>
+        <item>
+            <title><![CDATA[Enhance SEO ratings with Social Meta Tags]]></title>
+            <link>/blog/2023/enhance-seo-ratings-with-social-meta-tags</link>
+            <guid isPermaLink="true">/blog/2023/enhance-seo-ratings-with-social-meta-tags</guid>
+            <pubDate>Mon, 30 Oct 2023 18:30:03 GMT</pubDate>
+            <description><![CDATA[In this blog post, I go over my learning about the techniques available to improve SEO visibility when sharing your blog/webpages on different social media.]]></description>
+            <media:content url="https://upload.wikimedia.org/wikipedia/commons/e/ea/Demystifying_Search_Engine_Optimization_-viz_notes-_-wcyvr_%288084222814%29.jpg" medium="image" />
+            <enclosure url="https://upload.wikimedia.org/wikipedia/commons/e/ea/Demystifying_Search_Engine_Optimization_-viz_notes-_-wcyvr_%288084222814%29.jpg" length="0" type="image/jpeg" />
+        </item>
+        <item>
+            <title><![CDATA[How I created my own Programming Language]]></title>
+            <link>/blog/old/how-i-created-my-own-programming-language</link>
+            <guid isPermaLink="true">/blog/old/how-i-created-my-own-programming-language</guid>
+            <pubDate>Sat, 17 Dec 2022 18:30:00 GMT</pubDate>
+            <description><![CDATA[In this article, I go over the topics on how to build your own programming language.]]></description>
+            <media:content url="https://raw.githubusercontent.com/munificent/craftinginterpreters/master/site/image/a-map-of-the-territory/mountain.png" medium="image" />
+            <enclosure url="https://raw.githubusercontent.com/munificent/craftinginterpreters/master/site/image/a-map-of-the-territory/mountain.png" length="0" type="image/jpeg" />
+        </item>
+        <item>
+            <title><![CDATA[Create Binary Search Tree (BST) in Python 3]]></title>
+            <link>/blog/old/create-binary-search-tree-bst-in-python-3</link>
+            <guid isPermaLink="true">/blog/old/create-binary-search-tree-bst-in-python-3</guid>
+            <pubDate>Sun, 03 Jan 2021 16:30:03 GMT</pubDate>
+            <description><![CDATA[Tutorial on building Binary Search Tree Data Structure using Pure Python.]]></description>
+            <media:content url="https://images.pexels.com/photos/268533/pexels-photo-268533.jpeg" medium="image" />
+            <enclosure url="https://images.pexels.com/photos/268533/pexels-photo-268533.jpeg" length="0" type="image/jpeg" />
+        </item>
+        <item>
+            <title><![CDATA[Hello World!]]></title>
+            <link>/blog/old/hello-world</link>
+            <guid isPermaLink="true">/blog/old/hello-world</guid>
+            <pubDate>Sun, 03 Jan 2021 14:30:03 GMT</pubDate>
+            <description><![CDATA[This is my "hello world" program for my blog site.]]></description>
+            <media:content url="https://i.postimg.cc/DfSM9rVh/1-Oohq-W5-DGh9-CQS4h-LY5-FXz-A.png" medium="image" />
+            <enclosure url="https://i.postimg.cc/DfSM9rVh/1-Oohq-W5-DGh9-CQS4h-LY5-FXz-A.png" length="0" type="image/jpeg" />
+        </item>
+</channel>
+</rss>
